@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import ContainerItem from "./ContainerItem";
+
+import ListGroupItems from "./ListGroupItems";
 
 class Home extends Component {
   constructor(props) {
@@ -126,14 +127,13 @@ class Home extends Component {
       incomeType: type == "Add" ? false : true,
     });
   };
-  //showmodel
   render() {
     const expenditure =
       localStorage.getItem("expenditure") === null
         ? this.state.expenditure
         : JSON.parse(localStorage.getItem("expenditure"));
 
-    return <ContainerItem />;
+    return <ListGroupItems />;
   }
 }
 

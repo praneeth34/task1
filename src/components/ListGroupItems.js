@@ -1,58 +1,54 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Container from "react-bootstrap/Container";
 
-function ContainerItem() {
-  const showModal = () => {
-    return (
-      <Modal show={this.state.showPopup}>
-        <Modal.Header>
-          <Modal.Title>
-            {this.state.incomeType ? "Add Spended Money" : "Add Received Money"}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={this.handleFormSubmit}>
-            <label>
-              {this.state.incomeType ? "Spended Money" : "Add Money"} :{" "}
-              <input
-                name="addedMoney"
-                type="number"
-                onChange={this.handleInput}
-              />
-            </label>
-            <label>
-              Add Description:{" "}
-              <input
-                name="description"
-                type="text"
-                onChange={this.handleInput}
-              />
-            </label>
-          </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button
-            variant="secondary"
-            onClick={() => this.setState({ showPopup: false })}
-          >
-            Close
-          </Button>
-          <Button variant="primary" onClick={this.handleSubmit}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  };
+const showModal = () => {
+  return (
+    <Modal show={this.state.showPopup}>
+      <Modal.Header>
+        <Modal.Title>
+          {this.state.incomeType ? "Add Spended Money" : "Add Received Money"}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <form onSubmit={this.handleFormSubmit}>
+          <label>
+            {this.state.incomeType ? "Spended Money" : "Add Money"} :{" "}
+            <input
+              name="addedMoney"
+              type="number"
+              onChange={this.handleInput}
+            />
+          </label>
+          <label>
+            Add Description:{" "}
+            <input name="description" type="text" onChange={this.handleInput} />
+          </label>
+        </form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button
+          variant="secondary"
+          onClick={() => this.setState({ showPopup: false })}
+        >
+          Close
+        </Button>
+        <Button variant="primary" onClick={this.handleSubmit}>
+          Save Changes
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
+function ListGroupItems() {
   return (
     <Container>
-      {this.showModal()}
+      {showModal.bind(this)}
       <Row>
         <Col style={{ backgroundColor: "#c3c3c3", height: "100px" }}>
           <div>
@@ -97,4 +93,4 @@ function ContainerItem() {
   );
 }
 
-export default ContainerItem;
+export default ListGroupItems;
